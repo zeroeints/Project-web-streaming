@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-	<img src="bird.png" class="bird">
+	<img src="img/bird.png" class="bird">
 	<form class="form" method="post" action="#" autocomplete="off">
 		<header>
 			<h1>LOGIN</h1>
