@@ -1,11 +1,3 @@
-:root{
-	--color-gray :gray;
-	--color-white:white;
-	--yellow:#ffcc00;
-	--orange:#ff6666;
-	--red:#cc0066;
-	--blue:#66cccc;
-}
 *{
 	margin: 0;
 	padding: 0;
