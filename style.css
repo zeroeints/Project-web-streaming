@@ -1,0 +1,48 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: black;
+}
+header{
+	backdrop-filter: blur(5px);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 5%;
+	position: fixed;
+	right: 0;
+	left: 0;
+	top: 0;
+}
+header h1{
+	color: orange;
+	text-transform: capitalize;
+	text-shadow: 0 0 2px orange;
+}
+header nav a{
+	background: orange;
+	text-decoration: none;
+	color: white;
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	padding: 5px 0;
+	text-transform: capitalize;
+	border-radius: 5px;
+	margin-left: 5px;
+}
+header nav a:hover{
+	text-shadow: 0 0 5px white;
+	opacity: 90%;
+}
+
+.container{
+	width: 90%;
+	height: 50vh;
+	margin: auto;
+	background: orange;
+	border-radius: 20px;
+	margin-top: 60px;
+}

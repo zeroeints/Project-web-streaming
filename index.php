@@ -7,6 +7,13 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h1>ini adalah lending page</h1>
+	<header>
+		<h1>netclip</h1>
+		<nav>
+			<a href="Login/signIn.php">signIn</a>
+			<a href="Login/signUp.php">signUp</a>
+		</nav>
+	</header>
+	<div class="container"></div>
 </body>
 </html>

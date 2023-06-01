@@ -23,7 +23,7 @@
 		</div>
 		<div class="link">
 			<button type="submit" name="submit" class="button">CREATE</button>
-			<p>Login now ! <a href="login.php" class="button">Click Here</a></p>
+			<p>Login now ! <a href="signIn.php" class="button">Click Here</a></p>
 		</div>
 	</form>
 </div>

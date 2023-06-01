@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Login | page</title>
+	<title>SignIn | page</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
 	<img src="img/bird.png" class="bird">
 	<form class="form" method="post" action="#" autocomplete="off">
 		<header>
-			<h1>LOGIN</h1>
+			<h1>SignIn</h1>
 		</header>
 		<div class="inputan">
 			<label for="nama">Nama :</label>
@@ -25,7 +25,7 @@
 			<label>Remember me</label>
 		</div>
 		<div class="link">
-			<button type="submit" name="submit" class="button">SUBMIT</button>
+			<button type="submit" name="submit" class="button">Login</button>
 			<p>you dont have account? <a href="signUp.php" class="button">Sign Up</a></p>
 		</div>
 	</form>
