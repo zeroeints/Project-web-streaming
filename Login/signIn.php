@@ -12,7 +12,7 @@
     if (isset($_GET['pesan'])) {
         if ($_GET['pesan'] == 'auth') {
             include "../action/loginAction.php";
-            header('location:../index.php');
+            header('location:../Apps/index.php');
 
         } elseif ($_GET['pesan'] == 'fail') {
             ?>

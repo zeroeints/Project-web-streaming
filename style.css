@@ -6,12 +6,13 @@ body{
 	background: black;
 }
 header{
-	backdrop-filter: blur(5px);
 	display: flex;
+	backdrop-filter: blur(5px);
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px 5%;
 	position: fixed;
+	z-index: 2;
 	right: 0;
 	left: 0;
 	top: 0;
@@ -37,12 +38,125 @@ header nav a:hover{
 	text-shadow: 0 0 5px white;
 	opacity: 90%;
 }
-
 .container{
 	width: 90%;
+	margin: auto;
+}
+.container .logo{
 	height: 50vh;
 	margin: auto;
-	background: orange;
+	background: ;
 	border-radius: 20px;
 	margin-top: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container .logo h1{
+	color: yellow;
+	text-shadow: 0 0 10px orange;
+	font-size: 120px;
+	border-bottom: 2px solid yellow;
+	position: relative;
+}
+.container .logo h1::before{
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	transform: rotate(45deg);
+	bottom: -10px;
+	background: yellow;
+}
+.container .logo h1::after{
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 0;
+	transform: rotate(45deg);
+	bottom: -10px;
+	background: yellow;
+}
+.container #about{
+	color: white;
+	display: grid;
+	background: #090909;
+	justify-items: center;
+	margin-top: 20px;
+	position: relative;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	border-radius: 5px;
+}
+.container #about label{
+	height: 20px;
+	padding: 5px 20px;
+	border-left: 2px solid gray;
+	border-right: 2px solid gray;
+	position: absolute;
+	top: -15px;
+	background: #090909;
+	text-shadow: 0 0 3px white;
+	font-size: 20px;
+}
+.container #about p{
+	text-align: center;
+	padding: 30px 10%;
+	font-size: 20px;
+}
+.container #genre{
+	color: white;
+	margin-top: 50px;
+	background: orange;
+}
+.container #genre .list{
+	background: #151515;
+	margin-bottom: 10px;
+	padding: 20px 10%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
+	align-items: center;
+}
+.container #genre .list .img{
+	width: 250px;
+	height: 250px;
+}
+.container #genre .list .info p{
+	font-size: 25px;
+}
+.container #genre .list:nth-child(even){
+	background: #232323;
+}
+.container #genre .action .img{
+	background-image: url('img/action.jpg');
+	background-position: center;
+	background-size: cover;
+}
+.container #genre .romantis .img{
+	background-image: url('img/romantis.jpg');
+	background-position: center;
+	background-size: cover;
+}
+.container #genre .komedi .img{
+	background-image: url('img/komedi.jpg');
+	background-position: center;
+	background-size: cover;
+}
+.container #genre .horor .img{
+	background-image: url('img/horor.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+footer{
+	background: #101010;
+	height: 200px;
+	color: yellow;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: serif;
 }
