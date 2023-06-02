@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,19 +7,37 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
+<?php
+    include '../koneksi.php';
+    global $koneksi;
+    if (isset($_POST['submit'])) {
+        $getName = $_POST['nama'];
+        $getPass = $_POST['password'];
+        $getEmail = $_POST['email'];
+        $getSub = $_POST['sub'];
+
+        mysqli_query($koneksi, "INSERT INTO user VALUES ('', '$getName', '$getPass', '$getEmail', '$getSub')");
+        header('location:../Login/signIn.php');
+    }
+
+?>
+
+
 <div class="container">
-	<img src="img/bird.png" class="bird">
-	<form class="form" method="post" action="#" autocomplete="off">
+	<img src="img/bird.png" class="bird" alt="">
+	<form class="form" method="post" autocomplete="off">
 		<header>
 			<h1>SignUp</h1>
 		</header>
 		<div class="inputan">
-			<label for="nama">Nama :</label>
-			<input type="text" name="nama" placeholder="input nama" id="nama" required>
+			<label for="nama">Username :</label>
+			<input type="text" name="nama" placeholder="Input Username" id="nama" required>
 			<label for="password">Password :</label>
-			<input type="password" name="password" placeholder="input password" id="password" required>
+			<input type="password" name="password" placeholder="Input Password" id="password" required>
 			<label for="email">Email :</label>
-			<input type="email" name="email" placeholder="input email" id="email" required>
+			<input type="email" name="email" placeholder="Input Email" id="email" required>
+            <input type="hidden" name="sub" value="yes">
 		</div>
 		<div class="link">
 			<button type="submit" name="submit" class="button">CREATE</button>
