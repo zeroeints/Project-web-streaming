@@ -9,7 +9,8 @@
 </head>
 <body>
 <header>
-	<h1>Netclip</h1>
+	//bagusan ini wkwkwk
+	<h1>NetcHub</h1>
 	<form action="" method="post" class="search">
 		<input type="text" name="search" placeholder="search film">
 		<button type="submit" name="submit"><i class="bi bi-search"></i></button>
