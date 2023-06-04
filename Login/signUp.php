@@ -15,9 +15,8 @@
         $getName = $_POST['nama'];
         $getPass = $_POST['password'];
         $getEmail = $_POST['email'];
-        $getSub = $_POST['sub'];
 
-        mysqli_query($koneksi, "INSERT INTO user VALUES ('', '$getName', '$getPass', '$getEmail', '$getSub')");
+        mysqli_query($koneksi, "INSERT INTO user VALUES ('', '$getName', '$getPass', '$getEmail', false)");
         header('location:../Login/signIn.php');
     }
 
@@ -37,7 +36,6 @@
 			<input type="password" name="password" placeholder="Input Password" id="password" required>
 			<label for="email">Email :</label>
 			<input type="email" name="email" placeholder="Input Email" id="email" required>
-            <input type="hidden" name="sub" value="yes">
 		</div>
 		<div class="link">
 			<button type="submit" name="submit" class="button">CREATE</button>
