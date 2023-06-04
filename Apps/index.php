@@ -9,12 +9,13 @@
 </head>
 <body>
 <?php 
-session_start();
+	session_start();
 	include '../koneksi.php';
 	$username = $_SESSION['nama'];
-	$data = mysqli_query($koneksi,"SELECT * FROM user WHERE nama = '$username'");
-	$datas = mysqli_fetch_assoc($data);
-	$film = 'poster/Sewu_Dino.jpg';
+	$dataUser = mysqli_query($koneksi,"SELECT * FROM user WHERE nama = '$username'");
+	$datasUser = mysqli_fetch_assoc($dataUser);
+
+	$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm");
 ?>
 <header>
 	<h1>Netclip</h1>
@@ -32,7 +33,7 @@ session_start();
 		</div>
 		<div class="email">
 			<p>Email:</p>
-			<p><?php echo $datas['email']; ?></p>
+			<p><?php echo $datasUser['email']; ?></p>
 		</div>
 	</div>
 	<form action="#" method="post" class="favorite">
@@ -56,17 +57,19 @@ session_start();
 	<div class="header">
 		<h1>List Film</h1>
 		<form action="" method="post" class="search">
-			<input type="text" name="search" placeholder="search film">
+			<input type="text" name="search" placeholder="search film" autocomplete="off">
 			<button type="submit" name="submit"><i class="bi bi-search"></i></button>
 		</form>
 	</div>
 	<div class="list">
+		<?php while ($datasFilm = mysqli_fetch_assoc($dataFilm)) {?>
 		<div class="card">
-			<div class="img" style="background-image: url(<?=$film ?>)"><p>sewu</p></div>
+			<div class="img" style="background-image: url('Poster/<?=$datasFilm['genre'];?>/<?=$datasFilm['poster'];?>.jpg');"><p><?=$datasFilm['poster']; ?></p></div>
 			<form action="#" method="post">
-				<button value="1">Detail</button>
+				<button value="<?=$datasFilm['id'] ?>">Detail</button>
 			</form>
 		</div>
+		<?php } ?>
 	</div>
 </div>
 

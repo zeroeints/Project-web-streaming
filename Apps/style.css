@@ -179,7 +179,6 @@ header a{
 	background-color: rgb(10, 10, 10);
 	width: 70%;
 	margin: auto;
-	height: 800px;
 	box-shadow: 0 0 10px 1px black;
 	border-radius: 20px;
 }
@@ -234,13 +233,14 @@ header a{
 	background-size: cover;
 	border-radius: 10px 10px 0 0 ;
 	position: relative;
+	background-position: center;
 }
 .container .list .card .img p{
 	color: white;
 	left: 50%;
 	position: absolute;
 	bottom: 10px;
-	text-shadow: 0 0 2px white;
+	text-shadow: 0 0 10px black;
 	transform: translateX(-50%);
 	text-align: center;
 }
