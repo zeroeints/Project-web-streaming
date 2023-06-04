@@ -65,8 +65,8 @@
 		<?php while ($datasFilm = mysqli_fetch_assoc($dataFilm)) {?>
 		<div class="card">
 			<div class="img" style="background-image: url('Poster/<?=$datasFilm['genre'];?>/<?=$datasFilm['poster'];?>.jpg');"><p><?=$datasFilm['poster']; ?></p></div>
-			<form action="#" method="post">
-				<button value="<?=$datasFilm['id'] ?>">Detail</button>
+			<form action="../action/increment.php" method="post">
+				<button name="submit"value="<?=$datasFilm['id'] ?>">Detail</button>
 			</form>
 		</div>
 		<?php } ?>
