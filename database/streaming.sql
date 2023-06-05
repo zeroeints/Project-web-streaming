@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2023 at 03:03 PM
+-- Generation Time: Jun 05, 2023 at 02:24 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -63,11 +63,11 @@ CREATE TABLE `listfilm` (
 --
 
 INSERT INTO `listfilm` (`id`, `poster`, `video`, `detail`, `genre`, `play`) VALUES
-(1, 'Everything Everywhere All At Once', 'Everything Everywhere All At Once', '', 'Action', 0),
+(1, 'Everything Everywhere All At Once', 'Everything Everywhere All At Once', '', 'Action', 1),
 (2, 'Marvel Studios AVENGERS 5 THE KANG DYNASTY', 'Marvel Studios AVENGERS 5 THE KANG DYNASTY', '', 'Action', 0),
 (3, 'Thor 2', 'Thor 2', '', 'Action', 0),
 (4, 'Top Gun Maverick', 'Top Gun Maverick', '', 'Action', 0),
-(5, 'Transformers Rise of the Beasts', 'Transformers Rise of the Beasts', '', 'Action', 0),
+(5, 'Transformers Rise of the Beasts', 'Transformers Rise of the Beasts', '', 'Action', 2),
 (6, 'across_the_spider-verse', 'SPIDERMAN ACROSS THE SPIDERVERSE', '', 'Comedy', 0),
 (7, 'despicable me 2', 'Despicable Me 2 - Trailer 2', '', 'Comedy', 0),
 (8, 'guardians of the galaxy vol 3', 'Marvel Studios’ Guardians of the Galaxy Vol. 3 ', '', 'Comedy', 0),
@@ -82,7 +82,7 @@ INSERT INTO `listfilm` (`id`, `poster`, `video`, `detail`, `genre`, `play`) VALU
 (17, 'Paper Towns poster', 'Paper Towns', '', 'Romantis', 0),
 (18, 'Senses', 'Senses', '', 'Romantis', 0),
 (19, 'The Notebook', 'The Notebook', '', 'Romantis', 0),
-(20, 'The Vow', 'The Vow', '', 'Romantis', 0);
+(20, 'The Vow', 'The Vow', '', 'Romantis', 1);
 
 -- --------------------------------------------------------
 
