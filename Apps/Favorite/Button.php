@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Like Button</title>
     <style>
         .like-button {
@@ -26,9 +27,7 @@
             width: 20px;
             height: 20px;
             background-color: #f1f1f1;
-            background-image: url('../../img/Like.png');
-            background-size: cover;
-            background-repeat: no-repeat;
+            
             transition: transform 0.3s ease;
         }
 
@@ -39,7 +38,7 @@
 
         .like-button.liked .like-icon {
             background-color: orange;
-            background-image: url('../../img/Like.png');
+           
             transform: scale(1.2);
         }
     </style>
@@ -47,7 +46,7 @@
 
 <body>
     <button class="like-button" onclick="toggleLike()">
-        <span class="like-icon"></span>
+        <span class="like-icon" > <i class="bi bi-heart"></i></span>
         Like
     </button>
 
