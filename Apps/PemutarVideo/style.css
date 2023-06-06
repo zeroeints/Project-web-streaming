@@ -1,0 +1,41 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.container{
+	background-color: black;
+	height: 100vh;
+}
+.back{
+	display: flex;
+	background-color: rgb(40, 40, 40);
+	padding: 10px;
+	align-items: center;
+}
+.back:hover .txt{
+	color: white;
+	display: block;
+	cursor: pointer;
+	text-shadow: 0 0 5px white;
+}
+.back a{
+	color: white;
+	font-size: 30px;
+}
+.back .txt{
+	display: none;
+	padding: 5px;
+	font-size: 20px;
+	text-decoration: none;
+}
+video{
+	width: 80%;
+	background-color: black;
+	border: 2px solid rgb(40, 40, 40);
+	box-shadow: 0 0 20px rgb(40, 40, 40);
+	height: 70vh;
+}
+.button{
+	background-color: rgb(40, 40, 40);
+
+}

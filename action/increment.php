@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
 	$dataPlay = $datas['play'];
 	$dataPlay++;
 	mysqli_query($koneksi,"UPDATE listfilm SET play='$dataPlay' WHERE id = '$id'");
-	header("location:../Apps/index.php");
+	header("location:../Apps/PemutarVideo/index.php?id=$id");
 }
 
  ?>
