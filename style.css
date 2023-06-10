@@ -1,161 +1,222 @@
+:root{
+	--color-black:#151313;
+	--color-red:#FF0000;
+	--color-gray:#605E5E;
+	--color-white:#FFFFFF;
+}
 *{
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 body{
-	background: black;
+	background-color: var(--color-gray);
+	font-family: 'Mulish', sans-serif;
+	color: var(--color-white);
 }
+/* ini bagian header===========================================> */
 header{
-	display: flex;
+	background-color: var(--color-black);
+	height: 100vh;
+	position: relative;
+}
+header nav{
 	backdrop-filter: blur(5px);
+	padding: 10px 30px;
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px 5%;
 	position: fixed;
 	z-index: 2;
-	right: 0;
 	left: 0;
-	top: 0;
+	right: 0;
 }
-header h1{
-	color: orange;
-	text-transform: capitalize;
-	text-shadow: 0 0 2px orange;
+header nav .logo{
+	width: 150px;
+	height: 50px;
+	display: flex;
+	align-items: center;
 }
-header nav a{
-	background: orange;
-	text-decoration: none;
-	color: white;
-	display: inline-block;
-	width: 100px;
-	text-align: center;
-	padding: 5px 0;
-	text-transform: capitalize;
-	border-radius: 5px;
+header nav .logo .bulat{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: var(--color-red);
+	display: grid;
+	place-items: center;
+}
+header nav .logo .bulat i{
+	font-size: 30px;
+}
+header nav .logo h5{
+	font-size: 25px;
 	margin-left: 5px;
 }
-header nav a:hover{
-	text-shadow: 0 0 5px white;
-	opacity: 90%;
-}
-.container{
-	width: 90%;
-	margin: auto;
-}
-.container .logo{
-	height: 50vh;
-	margin: auto;
-	border-radius: 20px;
-	margin-top: 60px;
+header nav ul{
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	list-style: none;
+	width: 30%;
+	justify-content: space-between;
 }
-.container .logo h1{
-	color: yellow;
-	text-shadow: 0 0 10px orange;
-	font-size: 120px;
-	border-bottom: 2px solid yellow;
-	position: relative;
+header nav ul li{
+	padding: 5px;
+	transition: 0.5s;
 }
-.container .logo h1::before{
-	content: "";
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	transform: rotate(45deg);
-	bottom: -10px;
-	background: yellow;
+header nav ul li:hover{
+	border-bottom: 1px solid var(--color-red);
+	text-shadow: 0 0 5px var(--color-white);
 }
-.container .logo h1::after{
-	content: "";
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	right: 0;
-	transform: rotate(45deg);
-	bottom: -10px;
-	background: yellow;
-}
-.container #about{
-	color: white;
-	display: grid;
-	background: #090909;
-	justify-items: center;
-	margin-top: 20px;
-	position: relative;
-	border-top: 1px solid gray;
-	border-bottom: 1px solid gray;
-	border-radius: 5px;
-}
-.container #about label{
-	height: 20px;
-	padding: 5px 20px;
-	border-left: 2px solid gray;
-	border-right: 2px solid gray;
-	position: absolute;
-	top: -15px;
-	background: #090909;
-	text-shadow: 0 0 3px white;
-	font-size: 20px;
-}
-.container #about p{
-	text-align: center;
-	padding: 30px 10%;
-	font-size: 20px;
-}
-.container #genre{
-	color: white;
-	margin-top: 50px;
-	background: orange;
-}
-.container #genre .list{
-	background: #151515;
-	margin-bottom: 10px;
-	padding: 20px 10%;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	justify-items: center;
-	align-items: center;
-}
-.container #genre .list .img{
-	width: 250px;
-	height: 250px;
-}
-.container #genre .list .info p{
-	font-size: 25px;
-}
-.container #genre .list:nth-child(even){
-	background: #232323;
-}
-.container #genre .action .img{
-	background-image: url('img/action.jpg');
-	background-position: center;
-	background-size: cover;
-}
-.container #genre .romantis .img{
-	background-image: url('img/romantis.jpg');
-	background-position: center;
-	background-size: cover;
-}
-.container #genre .komedi .img{
-	background-image: url('img/komedi.jpg');
-	background-position: center;
-	background-size: cover;
-}
-.container #genre .horor .img{
-	background-image: url('img/horor.jpg');
-	background-position: center;
-	background-size: cover;
+header nav ul li a{
+	text-decoration: none;
+	color: var(--color-white);
 }
 
-footer{
-	background: #101010;
-	height: 200px;
-	color: yellow;
+header .teks{
+	height: 100vh;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-family: serif;
+	flex-direction: column;
+}
+header .teks h1{
+	font-size: 50px;
+	border-bottom: 1px solid var(--color-gray);
+}
+header .teks strong{
+	color: var(--color-red);
+	text-shadow: 0 0 1px var(--color-red);
+}
+header .teks a{
+	background-color: var(--color-red);
+	text-decoration: none;
+	color: var(--color-white);
+	padding: 10px 20px;
+	border-radius: 30px;
+	margin-top: 20px;
+	text-transform: uppercase;
+	position: relative;
+}
+header .teks a:hover{
+	background-color: #e60000;
+	text-shadow: 0 0 3px var(--color-white);
+}
+header .teks a .arah-kiri{
+	font-size: 60px;
+	color: var(--color-red);
+	top: -20px;
+	right: -70px;
+	position: absolute;
+}
+header .teks .arah-bawah{
+	position: absolute;
+	bottom: 10px;
+	font-size: 30px;
+}
+/*end bagian header ================================================>*/
+/*bagian about =====================================================>*/
+#about{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: var(--color-black);
+}
+#about h1,#about p{
+	text-shadow: 0 0 5px var(--color-black);
+	transform: translateY(100px);
+}
+#about p{
+	margin-top: 20px;
+	font-size: 20px;
+	width: 60%;
+	text-align: center;
+}
+#about p a{
+	color: var(--color-red);
+	text-shadow: none;
+}
+/*end bagian about=================================================>*/
+/*bagian genre=====================================================>*/
+#genre{
+	background-color: var(--color-black);
+	padding:0 0 5px;
+}
+#genre h1{
+	text-align: center;
+	margin: 50px 0 100px 0;
+	text-shadow: 0 0 5px var(--color-white);
+}
+#genre .list{
+	background-color: var(--color-red);
+	width: 70%;
+	margin: auto;
+}
+#genre .list .film{
+	background-color: var(--color-black);
+	margin-bottom: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 0;
+}
+#genre .list .film p {
+	font-size: 25px;
+	width: 70%;
+}
+#genre .list .film .poster{
+	background-size: cover;
+	background-position: center;
+	width: 250px;
+	height: 250px;
+	box-sizing: border-box;
+}
+#genre .list .action .poster{
+	background-image: url('Apps/Poster/Action/Thor 2.jpg');
+}
+#genre .list .comedy .poster{
+	background-image: url('Apps/Poster/Comedy/despicable me 2.jpg');
+}
+#genre .list .horor .poster{
+	background-image: url('Apps/Poster/Horor/Pengabdi Setan 2.jpg');
+}
+#genre .list .romantis .poster{
+	background-image: url('Apps/Poster/Romantis/The Vow.jpg');
+}
+/*end genre====================================================>*/
+/*contact========================================================>*/
+#contact{
+	height: 80vh;
+	text-align: center;
+}
+#contact h1{
+	text-shadow: 0 0 3px var(--color-black);
+	color: var(--color-black);
+}
+#contact ul{
+	margin: 30px auto;
+	list-style: none;
+	width: 50%;
+	height: 100px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+#contact ul li a{
+	width: 50px;
+	height:50px;
+	background-size: cover;
+	background-position: center;
+	display: block;
+}
+#contact ul .facebook a{
+	background-image: url('img/facebook.png');
+}
+#contact ul .instagram a{
+	background-image: url('img/instagram.png');
+}
+#contact ul .twitter a{
+	background-image: url('img/twitter.png');
+}
+#contact ul .gmail a{
+	background-image: url('img/gmail.png');
 }
