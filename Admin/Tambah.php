@@ -57,7 +57,7 @@
     <form action="TambahData.php" method="post">
         <table border="1">
             <tr>
-                <th>Judul Film</th>
+                <th>Masukan Data film </th>
                 <td><input type="text" name="judul"></td>
             </tr>
             <tr>
