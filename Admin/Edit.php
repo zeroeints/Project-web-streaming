@@ -79,15 +79,19 @@
 
     while ($result = mysqli_fetch_array($data)) {
     ?>
-        <form action="update.php" method="post">
+        <form action="update.php" method="post" enctype="multipart/form-data">
             <table class="center-table" border="1">
                 <tr>
                     <td>Id</td>
                     <td><input type="hidden" name="id" value="<?php echo $result['id']; ?>"></td>
                 </tr>
                 <tr>
-                    <td>Judul Film</td>
-                    <td><input type="text" name="poster" value="<?php echo $result['poster']; ?>"></td>
+                    <td>Video film</td>
+                    <td><input type="file" name="video"></td>
+                </tr>
+                <tr>
+                    <td>Poster film</td>
+                    <td><input type="file" name="poster"></td>
                 </tr>
                 <tr>
                     <td>Detail Film</td>
@@ -100,7 +104,7 @@
                         <label><input type="checkbox" name="genre[]" value="Romance" <?php if (in_array('Romance', explode(',', $result['genre']))) echo 'checked'; ?>> Romance</label><br>
                         <label><input type="checkbox" name="genre[]" value="Comedy" <?php if (in_array('Comedy', explode(',', $result['genre']))) echo 'checked'; ?>> Comedy</label><br>
                         <label><input type="checkbox" name="genre[]" value="Horor" <?php if (in_array('Horor', explode(',', $result['genre']))) echo 'checked'; ?>> Horor</label><br>
-                        
+
                     </td>
                 </tr>
                 <tr>

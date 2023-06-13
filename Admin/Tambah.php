@@ -54,11 +54,15 @@
 </head>
 
 <body>
-    <form action="TambahData.php" method="post">
+    <form action="TambahData.php" method="post" enctype="multipart/form-data">
         <table border="1">
             <tr>
-                <th>Masukan Data film </th>
-                <td><input type="text" name="judul"></td>
+                <th>Masukkan video film</th>
+                <td><input type="file" name="video"></td>
+            </tr>
+            <tr>
+                <th>Masukkan poster film</th>
+                <td><input type="file" name="poster"></td>
             </tr>
             <tr>
                 <th>Detail</th>
@@ -70,8 +74,7 @@
                     <label><input type="checkbox" name="genre[]" value="Action"> Action</label><br>
                     <label><input type="checkbox" name="genre[]" value="Romance"> Romance</label><br>
                     <label><input type="checkbox" name="genre[]" value="Comedy"> Comedy</label><br>
-                    <label><input type="checkbox" name="genre[]" value="Horor"> Horor</label><br>
-
+                    <label><input type="checkbox" name="genre[]" value="Horor"> Horror</label><br>
                 </td>
             </tr>
             <tr>
