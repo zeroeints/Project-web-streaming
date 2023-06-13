@@ -5,6 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>SignIn | page</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
 
@@ -26,27 +30,39 @@
 ?>
 
 <div class="container">
-	<img src="img/bird.png" class="bird" alt="">
 	<form class="form" method="post" action="../action/loginAction.php" autocomplete="off">
 		<header>
-			<h1>SignIn</h1>
+			<div class="logo">
+				<div class="bulat"><i class="bi bi-film"></i></div>
+				<h5>Netclip</h5>
+			</div>
 		</header>
 		<div class="inputan">
 			<label for="nama">Username :</label>
-			<input type="text" name="nama" placeholder="Masukan Username" id="nama" required>
+			<input type="text" name="nama" id="nama" required>
 			<label for="password">Password :</label>
-			<input type="password" name="password" placeholder="Masukan Password" id="password" required>
+			<input type="password" name="password" id="password" required>
 			<a href="#">forget your password?</a>
 		</div>
-		<div class="check">
-			<input type="checkbox" name="remember" id="remember">
-			<label class="remember" for="remember">Remember me</label>
-		</div>
+		
 		<div class="link">
-			<button type="submit" name="submit" class="button">Login</button>
-			<p>You don't have account? <a href="signUp.php" class="button">Sign Up</a></p>
+			<button type="submit" name="submit" class="button">MASUK</button>
+			<a href="signUp.php">Sign Up</a>
 		</div>
 	</form>
 </div>
+
+<script type="text/javascript">
+	var labelN = document.getElementsByTagName('label')[0];
+	var labelP = document.getElementsByTagName('label')[1];
+	var inputN = document.getElementsByTagName('input')[0];
+	var inputP = document.getElementsByTagName('input')[1];
+	inputN.addEventListener("click",function () {
+		labelN.style.top = '10px';
+	})
+	inputP.addEventListener("click",function () {
+		labelP.style.top = '10px';
+	})
+</script>
 </body>
 </html>

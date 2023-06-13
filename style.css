@@ -9,7 +9,7 @@
 	padding: 0;
 }
 body{
-	background-color: var(--color-gray);
+	background-color: var(--color-white);
 	font-family: 'Mulish', sans-serif;
 	color: var(--color-white);
 }
@@ -46,6 +46,7 @@ header nav .logo .bulat{
 }
 header nav .logo .bulat i{
 	font-size: 30px;
+	color: var(--color-white);
 }
 header nav .logo h5{
 	font-size: 25px;
@@ -67,7 +68,8 @@ header nav ul li:hover{
 }
 header nav ul li a{
 	text-decoration: none;
-	color: var(--color-white);
+	color: inherit;
+	text-shadow: 0 0 5px var(--color-black);
 }
 
 header .teks{
@@ -111,6 +113,9 @@ header .teks .arah-bawah{
 	bottom: 10px;
 	font-size: 30px;
 }
+.dark{
+	color: black;
+}
 /*end bagian header ================================================>*/
 /*bagian about =====================================================>*/
 #about{
@@ -122,8 +127,11 @@ header .teks .arah-bawah{
 	color: var(--color-black);
 }
 #about h1,#about p{
-	text-shadow: 0 0 5px var(--color-black);
+	text-shadow: 0 0 2px var(--color-black);
 	transform: translateY(100px);
+}
+#about h1{
+	text-shadow: 0 0 5px var(--color-black);
 }
 #about p{
 	margin-top: 20px;
@@ -209,14 +217,14 @@ header .teks .arah-bawah{
 	display: block;
 }
 #contact ul .facebook a{
-	background-image: url('img/facebook.png');
+	background-image: url('img/facebook-icon.png');
 }
 #contact ul .instagram a{
-	background-image: url('img/instagram.png');
+	background-image: url('img/instagram-icon.png');
 }
 #contact ul .twitter a{
-	background-image: url('img/twitter.png');
+	background-image: url('img/twitter-icon.png');
 }
 #contact ul .gmail a{
-	background-image: url('img/gmail.png');
+	background-image: url('img/gmail-icon.png');
 }
