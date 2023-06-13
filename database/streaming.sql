@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2023 at 02:24 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jun 06, 2023 at 09:27 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `favorite` (
   `idUser` int(11) NOT NULL,
   `idFilm` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -41,7 +41,7 @@ CREATE TABLE `favorite` (
 CREATE TABLE `history` (
   `idUser` int(11) NOT NULL,
   `idFilm` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE `listfilm` (
   `detail` text NOT NULL,
   `genre` text NOT NULL,
   `play` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `listfilm`
@@ -80,7 +80,7 @@ INSERT INTO `listfilm` (`id`, `poster`, `video`, `detail`, `genre`, `play`) VALU
 (15, 'Waktu Maghrib', 'Waktu Maghrib', '', 'Horor', 0),
 (16, 'Before We Go', 'Before We Go', '', 'Romantis', 0),
 (17, 'Paper Towns poster', 'Paper Towns', '', 'Romantis', 0),
-(18, 'Senses', 'Senses', '', 'Romantis', 0),
+(18, 'Senses', 'Senses', '', 'Romantis', 1),
 (19, 'The Notebook', 'The Notebook', '', 'Romantis', 0),
 (20, 'The Vow', 'The Vow', '', 'Romantis', 1);
 
@@ -95,16 +95,18 @@ CREATE TABLE `user` (
   `nama` text NOT NULL,
   `password` text NOT NULL,
   `email` text NOT NULL,
-  `subscribe` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `subscribe` tinyint(1) NOT NULL,
+  `role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `password`, `email`, `subscribe`) VALUES
-(8, 'bagaskara', '2004', 'bagas@gmail.com', 0),
-(9, 'bagaskara', '2004', 'bagas@gmail.com', 0);
+INSERT INTO `user` (`id`, `nama`, `password`, `email`, `subscribe`, `role`) VALUES
+(8, 'bagaskara', '2004', 'bagas@gmail.com', 0, 0),
+(9, 'bagaskara', '2004', 'bagas@gmail.com', 0, 0),
+(10, 'fila', '123', 'fila@gamil.com', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -136,7 +138,7 @@ ALTER TABLE `listfilm`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
