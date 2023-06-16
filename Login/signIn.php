@@ -38,10 +38,10 @@
 			</div>
 		</header>
 		<div class="inputan">
-			<label for="nama">Username :</label>
 			<input type="text" name="nama" id="nama" required>
-			<label for="password">Password :</label>
+			<label for="nama" class="user">Username :</label>
 			<input type="password" name="password" id="password" required>
+			<label for="password">Password :</label>
 			<a href="#">forget your password?</a>
 		</div>
 		
@@ -51,18 +51,5 @@
 		</div>
 	</form>
 </div>
-
-<script type="text/javascript">
-	var labelN = document.getElementsByTagName('label')[0];
-	var labelP = document.getElementsByTagName('label')[1];
-	var inputN = document.getElementsByTagName('input')[0];
-	var inputP = document.getElementsByTagName('input')[1];
-	inputN.addEventListener("click",function () {
-		labelN.style.top = '10px';
-	})
-	inputP.addEventListener("click",function () {
-		labelP.style.top = '10px';
-	})
-</script>
 </body>
 </html>

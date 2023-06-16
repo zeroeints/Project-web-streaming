@@ -36,12 +36,12 @@
 			</div>
 		</header>
 		<div class="inputan">
-			<label for="nama">Username :</label>
 			<input type="text" name="nama" id="nama" required>
-			<label for="password">Password :</label>
+			<label for="nama">Username :</label>
 			<input type="password" name="password" id="password" required>
-			<label for="email">Email :</label>
+			<label for="password">Password :</label>
 			<input type="email" name="email" id="email" required>
+			<label for="email">Email :</label>
 		</div>
 		<div class="link">
 			<button type="submit" name="submit" class="button">Buat</button>
