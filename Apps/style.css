@@ -1,13 +1,20 @@
+:root{
+	--color-black:#151313;
+	--color-red:#FF0000;
+	--color-gray:#605E5E;
+	--color-white:#FFFFFF;
+}
 *{
 	padding: 0;
 	margin: 0;
 }
 body{
-	background-color: rgb(12, 12, 12);
+	background-color: var(--color-black);
+	font-family: 'Mulish', sans-serif;
 }
 header{
 	display: flex;
-	background-color: rgb(19, 19, 19);
+	backdrop-filter: blur(10px);
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px 5%;
@@ -17,20 +24,42 @@ header{
 	left: 0;
 	top: 0;
 }
-header h1{
-	color: orange;
-	text-shadow: 0 0 2px orange;
+header .logo{
+	width: 150px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+}
+header .logo .bulat{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: var(--color-red);
+	display: grid;
+	place-items: center;
+}
+header .logo .bulat i{
+	font-size: 30px;
+	color: var(--color-white);
+}
+header .logo h5{
+	font-size: 25px;
+	margin-left: 5px;
+	color: var(--color-white);
 }
 header a{
-	background-color: blue;
-	color: aliceblue;
+	background-color: var(--color-red);
+	color: var(--color-white);
 	text-decoration: none;
 	padding: 10px 20px;
 	border-radius: 20px;
 }
+header a:hover{
+	opacity: 80%;
+}
 .fitur{
 	position: fixed;
-	background-color: rgb(19, 19, 19);
+	background-color: rgb(10, 10, 10);
 	height: 400px;
 	width: 40px;
 	top: 100px;
@@ -67,12 +96,11 @@ header a{
 .fitur .tombol{
 	width: 50px;
 	height: 50px;
-	background-color: red;
 	position: absolute;
 	top: 50%;
 	transform: rotate(45deg);
 	right: -25px;
-	background-color: rgb(19, 19, 19);
+	background-color: rgb(10, 10, 10);
 }
 .fitur .tombol:hover{
 	cursor: pointer;
@@ -141,39 +169,17 @@ header a{
 .muncul{
 	width: 13%;
 }
-.logo{
-	width: 70%;
-	margin: 100px auto;
-	top: 100px;
 
-}
-.logo h1{
-	color: yellow;
-	text-shadow: 0 0 10px orange;
-	font-size: 120px;
-	border-bottom: 2px solid yellow;
-	position: relative;
-	text-align: center;
-}
-.logo h1::before{
-	content: "";
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	transform: rotate(45deg);
-	bottom: -10px;
-	left: 0;
-	background: yellow;
-}
-.logo h1::after{
-	content: "";
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	right: 0;
-	transform: rotate(45deg);
-	bottom: -10px;
-	background: yellow;
+.event{
+	background-image: url('../img/background.jpg');
+	background-size: 500px;
+	background-position: center;
+	border-radius: 20px;
+	height: 400px;
+	width: 80%;
+	margin: 80px auto 50px;
+	border: 5px solid rgb(15, 15, 15);
+	box-shadow: 0 0 5px black;
 }
 .container{
 	background-color: rgb(10, 10, 10);
@@ -193,7 +199,7 @@ header a{
 .container .header h1{
 	color: white;
 	text-shadow: 0 0 2px white;
-	font-size: 10px;
+	font-size: 15px;
 }
 .container .header .search input{
 	height: 30px;
@@ -256,4 +262,23 @@ header a{
 	opacity: 80%;
 	cursor: pointer;
 	text-shadow: 0 0 5px black;
+}
+.show{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+}
+.show button{
+	background-color: var(--color-red);
+	border: none;
+	padding: 15px 30px;
+	border-radius: 20px;
+	color: white;
+	text-shadow: 0 0 10px white;
+}
+.show button:hover{
+	background-color: lawngreen;
+	color: black;
+	cursor: pointer;
 }

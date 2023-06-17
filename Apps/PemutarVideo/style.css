@@ -1,16 +1,23 @@
+:root{
+	--color-black:#151313;
+	--color-red:#FF0000;
+	--color-gray:#605E5E;
+	--color-white:#FFFFFF;
+}
 *{
 	padding: 0;
 	margin: 0;
+	font-family: 'Mulish', sans-serif;
 }
 .container{
-	background-color: black;
+	background-color: var(--color-black);
 	height: 100vh;
 }
 .back{
 	display: flex;
-	background-color: rgb(40, 40, 40);
-	padding: 10px;
+	background-color:  rgb(15, 15, 15);
 	align-items: center;
+	padding: 5px;
 }
 .back:hover .txt{
 	color: white;
@@ -28,14 +35,36 @@
 	font-size: 20px;
 	text-decoration: none;
 }
-video{
+.pemutar{
+	display: flex;
+}
+.pemutar video{
 	width: 80%;
 	background-color: black;
-	border: 2px solid rgb(40, 40, 40);
-	box-shadow: 0 0 20px rgb(40, 40, 40);
 	height: 70vh;
 }
+.pemutar .tranding{
+	width: 20%;
+	height: 70vh;
+	background-color: rgb(10, 10, 10);
+	color: var(--color-white);
+}
+.pemutar .tranding h5{
+	text-align: center;
+	padding: 10px;
+}
 .button{
-	background-color: rgb(40, 40, 40);
-
+	background-color: rgb(15, 15, 15);
+	color: var(--color-white);
+	display: flex;
+}
+.button button{
+	background-color: rgb(15, 15, 15);
+	margin: 3px 10px;
+	border: none;
+	cursor: pointer;
+}
+.button button i{
+	color: var(--color-white);
+	font-size: 20px;
 }

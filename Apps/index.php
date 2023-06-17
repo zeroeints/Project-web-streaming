@@ -6,6 +6,9 @@
 	<title>Netclip | home</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Mulish&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <?php 
@@ -14,11 +17,22 @@
 	$username = $_SESSION['nama'];
 	$dataUser = mysqli_query($koneksi,"SELECT * FROM user WHERE nama = '$username'");
 	$datasUser = mysqli_fetch_assoc($dataUser);
-
-	$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm");
+	$sql = mysqli_query($koneksi,"SELECT * FROM listfilm");
+	$banyakData = 0;
+	while (mysqli_fetch_assoc($sql)) {
+		$banyakData++;
+	}
+	$batas = 8;
+	if (isset($_POST['show'])) {
+		$batas = $banyakData;
+	}
+	$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm LIMIT $batas");
 ?>
 <header>
-	<h1>Netclip</h1>
+	<div class="logo">
+		<div class="bulat"><i class="bi bi-film"></i></div>
+		<h5>Netclip</h5>
+	</div>
 	<a href="../action/logOut.php">LogOut</a>
 </header>
 <div class="fitur">
@@ -50,9 +64,7 @@
 	</form>
 	<div class="tombol"></div>
 </div>
-<div class="logo">
-	<h1>NETCLIP</h1>
-</div>
+<div class="event"></div>
 <div class="container">
 	<div class="header">
 		<h1>List Film</h1>
@@ -66,12 +78,18 @@
 		<div class="card">
 			<div class="img" style="background-image: url('Poster/<?=$datasFilm['genre'];?>/<?=$datasFilm['poster'];?>.jpg');"><p><?=$datasFilm['poster']; ?></p></div>
 			<form action="PemutarVideo/index.php" method="post">
+				<input type="hidden" name="id" value="<?= $datasUser['id'] ?>">
 				<button name="submit"value="<?=$datasFilm['id'] ?>">Detail</button>
 			</form>
 		</div>
 		<?php } ?>
 	</div>
 </div>
+<?php if (!isset($_POST['show'])) {?>
+<form class="show" action="index.php" method="post">
+	<button name="show">Show All</button>
+</form>
+<?php } ?>
 
 
 <script type="text/javascript">
