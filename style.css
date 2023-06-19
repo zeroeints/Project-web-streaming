@@ -179,16 +179,16 @@ header .teks .arah-bawah{
 	box-sizing: border-box;
 }
 #genre .list .action .poster{
-	background-image: url('Apps/Poster/Action/Thor 2.jpg');
+	background-image: url('Apps/Poster/Thor 2.jpg');
 }
 #genre .list .comedy .poster{
-	background-image: url('Apps/Poster/Comedy/despicable me 2.jpg');
+	background-image: url('Apps/Poster/despicable me 2.jpg');
 }
 #genre .list .horor .poster{
-	background-image: url('Apps/Poster/Horor/Pengabdi Setan 2.jpg');
+	background-image: url('Apps/Poster/Pengabdi Setan 2.jpg');
 }
 #genre .list .romantis .poster{
-	background-image: url('Apps/Poster/Romantis/The Vow.jpg');
+	background-image: url('Apps/Poster/The Vow.jpg');
 }
 /*end genre====================================================>*/
 /*contact========================================================>*/
