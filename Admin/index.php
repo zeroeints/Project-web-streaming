@@ -56,7 +56,7 @@
                         <td><?php echo $result['id']; ?></td>
                         <td>
                             <div class="card" style="width: 9rem;">
-                                <img src="../Apps/Poster/<?php echo $result['poster']; ?>.jpg" class="card-img-top" alt="...">
+                                <img src="../Apps/Poster/<?php echo $result['poster']; ?>" class="card-img-top" alt="...">
                             </div>
                         </td>
                         <td><?php echo $result['poster']; ?></td>
