@@ -1,0 +1,51 @@
+.background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  color: white;
+  overflow: auto;
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #666;
+  color: white;
+}
+
+button[type="submit"] {
+  padding: 8px 16px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #ff0000;
+}
+button[type="tambah"]:hover {
+  background-color: #ffffff;
+}
