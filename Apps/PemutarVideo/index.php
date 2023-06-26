@@ -27,9 +27,6 @@ $datas = mysqli_fetch_assoc($data);
 		<video controls>
 			<source src="../Video/<?= $datas['video']; ?>.mp4" type="video/mp4">
 		</video>
-		<div class="tranding">
-			<h5>tranding</h5>
-		</div>
 	</div>
 	<div class="button">
 		<form action="../../action/like.php" method="post">
@@ -40,6 +37,17 @@ $datas = mysqli_fetch_assoc($data);
 			<input type="hidden" name="idUser" value="<?= $idUser ?>">
 			<button class="favorite" name="favorite" value="<?=$idFilm ?>"><i class="bi bi-bookmark-plus"></i></i></button>
 		</form>
+	</div>
+	<div class="detail">
+		<p><?= $datas['poster'] ?></p>
+		<div class="card">
+			<div class="poster" style="background-image: url('../Poster/<?= $datas['poster'] ?>.jpg');"></div>
+			<ul>
+				<li><strong>Detail : </strong><?=$datas['detail'] ?></li>
+				<li><strong>Genre : </strong><?=$datas['genre'] ?></li>
+				<li><strong>Like : </strong><?=$datas['play'] ?></li>
+			</ul>
+		</div>
 	</div>
 </div>
 </body>
