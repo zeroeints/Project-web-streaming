@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 
             if (mysqli_query($koneksi, $query)) {
                 echo "Data berhasil ditambahkan";
-                Header("location: TampilanAdmin.php");
+                Header("location: index.php");
             } else {
                 echo "Error: " . mysqli_error($koneksi);
             }

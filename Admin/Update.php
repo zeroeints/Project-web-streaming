@@ -67,4 +67,4 @@ if (!empty($video)) {
     }
 }
 
-header("location: TampilanAdmin.php");
+header("location: index.php");

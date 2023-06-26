@@ -28,4 +28,4 @@ if (!empty($video)) {
 // Hapus data dari database
 mysqli_query($koneksi, "DELETE FROM listfilm WHERE id='$id'");
 
-header("location: TampilanAdmin.php");
+header("location: index.php");

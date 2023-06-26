@@ -26,7 +26,13 @@
 	if (isset($_POST['show'])) {
 		$batas = $banyakData;
 	}
-	$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm LIMIT $batas");
+	$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm ORDER BY id DESC LIMIT $batas");
+
+	// untuk searching
+	if (isset($_POST['cari'])) {
+		$search = $_POST['search'];
+		$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm WHERE poster LIKE '%$search%'");
+	}
 ?>
 <header>
 	<div class="logo">
@@ -69,14 +75,14 @@
 	<div class="header">
 		<h1>List Film</h1>
 		<form action="" method="post" class="search">
-			<input type="text" name="search" placeholder="search film" autocomplete="off">
-			<button type="submit" name="submit"><i class="bi bi-search"></i></button>
+			<input id="search" type="text" name="search" placeholder="search film" autocomplete="off">
+			<button id="cari" type="submit" name="cari"><i class="bi bi-search"></i></button>
 		</form>
 	</div>
-	<div class="list">
+	<div class="list" id="list">
 		<?php while ($datasFilm = mysqli_fetch_assoc($dataFilm)) {?>
 		<div class="card">
-			<div class="img" style="background-image: url('Poster/<?=$datasFilm['poster'];?>.jpg');"><p><?=$datasFilm['poster']; ?></p></div>
+			<div class="img" style="background-image: url('Poster/<?=$datasFilm['poster'];?>');"><p><?=$datasFilm['poster']; ?></p></div>
 			<form action="PemutarVideo/index.php" method="post">
 				<input type="hidden" name="id" value="<?= $datasUser['id'] ?>">
 				<button name="submit"value="<?=$datasFilm['id'] ?>">Detail</button>
@@ -98,6 +104,24 @@
 
 	tombol.addEventListener("click",function () {
 		fitur.classList.toggle('muncul');
+	})
+
+	// ajax search
+	var search = document.getElementById('search');
+	var cari = document.getElementById('cari');
+	var list = document.getElementById('list');
+
+	search.addEventListener('keyup',function () {
+		var xhr = new XMLHttpRequest();
+
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				list.innerHTML = xhr.responseText;
+			}
+		}
+
+		xhr.open('get','ajax/dataFilm.php?search='+ search.value,true);
+		xhr.send();
 	})
 </script>
 </body>
