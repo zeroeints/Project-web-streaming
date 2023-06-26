@@ -20,8 +20,18 @@
         $getPass = $_POST['password'];
         $getEmail = $_POST['email'];
 
-        mysqli_query($koneksi, "INSERT INTO user VALUES ('', '$getName', '$getPass', '$getEmail', false)");
-        header('location:../Login/signIn.php');
+        $sql = mysqli_query($koneksi, "SELECT * FROM user");
+
+        while($data = mysqli_fetch_assoc($sql)){
+            if ($data['nama'] == $getName || $data['email'] == $getEmail) {
+                echo "Nama Sudah Ada";
+            } else {
+                mysqli_query($koneksi, "INSERT INTO user VALUES ('', '$getName', '$getPass', '$getEmail', false)");
+                header('location:../Login/signIn.php');
+            }
+        }
+
+
     }
 
 ?>
