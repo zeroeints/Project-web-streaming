@@ -56,16 +56,16 @@
 			<p><?php echo $datasUser['email']; ?></p>
 		</div>
 	</div>
-	<form action="#" method="post" class="favorite">
-		<button type="submit" name="favorite"><i class="bi bi-heart-fill"></i></button>
+	<form action="Favorite/index.php" method="post" class="favorite">
+		<button type="submit" name="favorite" value="<?= $datasUser['id'] ?>"><i class="bi bi-heart-fill"></i></button>
 		<label>FAVORITE</label>
 	</form>
-	<form action="#" method="post" class="populer">
-		<button type="submit" name="populer"><i class="bi bi-bar-chart-fill"></i></button>
+	<form action="Terpopuler/index.php" method="post" class="populer">
+		<button type="submit" name="populer" value="<?= $datasUser['id'] ?>"><i class="bi bi-bar-chart-fill"></i></button>
 		<label>TERPOPULER</label>
 	</form>
-	<form action="#" method="post" class="history">
-		<button type="submit" name="history"><i class="bi bi-hourglass-split"></i></button>
+	<form action="History/index.php" method="post" class="history">
+		<button type="submit" name="history" value="<?= $datasUser['id'] ?>"><i class="bi bi-hourglass-split"></i></button>
 		<label>HISTORY</label>
 	</form>
 	<div class="tombol"></div>
@@ -82,7 +82,7 @@
 	<div class="list" id="list">
 		<?php while ($datasFilm = mysqli_fetch_assoc($dataFilm)) {?>
 		<div class="card">
-			<div class="img" style="background-image: url('Poster/<?=$datasFilm['poster'];?>');"><p><?=$datasFilm['poster']; ?></p></div>
+			<div class="img" style="background-image: url('Poster/<?=$datasFilm['poster'];?>');"><p><?=$datasFilm['name']; ?></p></div>
 			<form action="PemutarVideo/index.php" method="post">
 				<input type="hidden" name="id" value="<?= $datasUser['id'] ?>">
 				<button name="submit"value="<?=$datasFilm['id'] ?>">Detail</button>

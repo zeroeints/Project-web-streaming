@@ -41,13 +41,13 @@
 			</form>
 		</div>
 		<div class="detail">
-			<p><?= $datas['poster'] ?></p>
+			<p><?= $datas['name'] ?></p>
 			<div class="card">
 				<div class="poster" style="background-image: url('../Poster/<?= $datas['poster'] ?>');"></div>
 				<ul>
-					<li><strong>Detail : </strong><?= $datas['detail'] ?></li>
 					<li><strong>Genre : </strong><?= $datas['genre'] ?></li>
-					<li><strong>Like : </strong><?= $datas['play'] ?></li>
+					<li><strong>Like : </strong><?= $datas['like'] ?></li>
+					<li><strong>Detail : </strong><?= $datas['detail'] ?></li>
 				</ul>
 			</div>
 		</div>
