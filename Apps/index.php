@@ -31,7 +31,7 @@
 	// untuk searching
 	if (isset($_POST['cari'])) {
 		$search = $_POST['search'];
-		$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm WHERE poster LIKE '%$search%'");
+		$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm WHERE name LIKE '%$search%'");
 	}
 ?>
 <header>

@@ -1,7 +1,7 @@
 <?php 
 include '../../koneksi.php';
 $search = $_GET['search'];
-$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm WHERE poster LIKE '%$search%'");
+$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm WHERE name LIKE '%$search%'");
 ?>
 <?php while ($datasFilm = mysqli_fetch_assoc($dataFilm)) {?>
 	<div class="card">
