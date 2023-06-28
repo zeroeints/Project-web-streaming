@@ -14,6 +14,10 @@
 
 <body>
 	<?php
+	session_start();
+	if (!isset($_SESSION['nama'])) {
+		header('location:../Login/signIn.php');
+	}
 	include '../../koneksi.php';
 	$idFilm = $_POST['submit'];
 	$idUser = $_POST['id'];
@@ -26,7 +30,7 @@
 	$users = mysqli_fetch_assoc($user);
 
 	//untuk like
-	$btnLike="";
+	$btnLike='<i class="bi bi-heart"></i>';
 	$liked = mysqli_query($koneksi, "SELECT * FROM love WHERE idUser = '$idUser'");
 	while ($result = mysqli_fetch_assoc($liked)) {
 		if ($result['idFilm'] == $idFilm) {
@@ -36,9 +40,8 @@
 			$btnLike = '<i class="bi bi-heart"></i>';
 		}
 	}
-
 	//untuk favorite
-	$btnfav="";
+	$btnfav='<i class="bi bi-bookmark-heart"></i>';
 	$fav = mysqli_query($koneksi, "SELECT * FROM favorite WHERE idUser = '$idUser'");
 	while ($result = mysqli_fetch_assoc($fav)) {
 		if ($result['idFilm'] == $idFilm) {
@@ -48,9 +51,14 @@
 			$btnfav = '<i class="bi bi-bookmark-heart"></i>';
 		}
 	}
-	//untuk menyimpan di history
+	//untuk history
 	include '../../action/history.php';
 	history($idUser,$idFilm,$koneksi);
+
+	//untuk user permium
+	if ($users['subscribe'] == false) {
+		header("location:../index.php?premium");
+	}
 	?>
 	<div class="container">
 		<div class="back">

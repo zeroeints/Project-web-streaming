@@ -1,4 +1,8 @@
 <?php 
+session_start();
+if (!isset($_SESSION['nama'])) {
+    header('location:../Login/signIn.php');
+}
 include '../koneksi.php';
 $idUser = $_POST['idUser'];
 $idFilm = $_POST['like'];

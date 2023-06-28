@@ -12,7 +12,10 @@
 </head>
 <body>
 <?php 
-	session_start();
+session_start();
+if (!isset($_SESSION['nama'])) {
+	header('location:../Login/signIn.php');
+}
 	include '../koneksi.php';
 	$username = $_SESSION['nama'];
 	$dataUser = mysqli_query($koneksi,"SELECT * FROM user WHERE nama = '$username'");
@@ -97,7 +100,17 @@
 </form>
 <?php } ?>
 
-
+<!-- permium -->
+<?php if (isset($_GET['premium'])) {?>
+<div class="premium">
+	<div class="cancel"></div>
+	<h1>PREMIUM now</h1>
+	<a href="../action/premium.php?user=<?= $datasUser['id'] ?>">
+		<p>price :</p>
+		<p><span style="text-decoration: line-through;">Rp 20.000.000</span> / Rp 0</p>
+	</a>
+</div>
+<?php } ?>
 <script type="text/javascript">
 	var tombol = document.getElementsByClassName('tombol')[0];
 	var fitur = document.getElementsByClassName('fitur')[0];
@@ -122,6 +135,13 @@
 
 		xhr.open('get','ajax/dataFilm.php?search='+ search.value,true);
 		xhr.send();
+	})
+
+	//premium
+	var cancel = document.getElementsByClassName('cancel')[0];
+	var premium = document.getElementsByClassName('premium')[0];
+	cancel.addEventListener('click',function () {
+		premium.style.display = 'none';
 	})
 </script>
 </body>
