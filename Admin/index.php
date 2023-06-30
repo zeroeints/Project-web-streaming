@@ -14,20 +14,12 @@
 <body>
     <!-- <div class="container"> -->
     <div class="background ">
-        <div>
-
-            <nav class="navbar sticky-top bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Sticky top</a>
-                </div>
-            </nav>
-        </div>
-
 
 
         <h2>Admin</h2>
         <div class="d-flex justify-content-center">
-
+        <div class="container text-center">
+  
             <table>
                 <tr>
                     <th>ID</th>
@@ -36,14 +28,14 @@
                     <th>Detail</th>
                     <th>Genre</th>
                     <th>Action</th>
-                    <th>
+                    <th class="tambah">
                         <a href="Tambah.php"><button type="tambah" class="btn btn-outline-light">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
-                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
-                                </svg>
-                                Tambah
-                            </button></button></a>
+                                <i class="bi bi-plus-square"></i>Tambah</button></a>
+                    </th>
+                    <th class="out">
+                        <a href="Tambah.php"><button type="submit" class="btn btn-outline-light">
+                                <i class="bi bi-box-arrow-right"></i>Out</a>
+                        </button>
                     </th>
                 </tr>
                 <?php
@@ -59,7 +51,7 @@
                                 <img src="../Apps/Poster/<?php echo $result['poster']; ?>" class="card-img-top" alt="...">
                             </div>
                         </td>
-                        <td><?php echo $result['poster']; ?></td>
+                        <td><?php echo $result['judul']; ?></td>
                         <td><?php echo $result['detail']; ?></td>
                         <td><?php echo $result['genre']; ?></td>
                         <td>
@@ -83,6 +75,7 @@
                 }
                 ?>
             </table>
+            
         </div>
     </div>
     <!-- </div> -->

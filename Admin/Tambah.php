@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="styletambah.css">
 
     <title>Create</title>
-
 </head>
 
 <body>
     <div class="background">
-
-
         <form action="TambahData.php" method="post" enctype="multipart/form-data">
             <table border="1">
+                <tr>
+                    <th>Masukkan judul film</th>
+                    <td><input type="text" name="judul" placeholder="Masukkan Judul"></td>
+                </tr>
                 <tr>
                     <th>Masukkan video film</th>
                     <td><input type="file" name="video"></td>
@@ -32,10 +33,10 @@
                 <tr>
                     <th>Genre</th>
                     <td>
-                        <label><input type="checkbox" name="genre[]" value="Action"> Action</label><br>
-                        <label><input type="checkbox" name="genre[]" value="Romance"> Romance</label><br>
-                        <label><input type="checkbox" name="genre[]" value="Comedy"> Comedy</label><br>
-                        <label><input type="checkbox" name="genre[]" value="Horor"> Horror</label><br>
+                        <label><input type="radio" name="genre" value="Action"> Action</label><br>
+                        <label><input type="radio" name="genre" value="Romance"> Romance</label><br>
+                        <label><input type="radio" name="genre" value="Comedy"> Comedy</label><br>
+                        <label><input type="radio" name="genre" value="Horor"> Horror</label><br>
                     </td>
                 </tr>
                 <tr>

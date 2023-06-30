@@ -11,10 +11,10 @@ $genre = implode(',', $_POST['genre']);
 
 
 if (!empty($poster)) {
-    $max_file_size = 50 * 1024 * 1024;
+    $max_file_size = 41 * 1024 * 1024;
 
     if ($_FILES['poster']['size'] > $max_file_size) {
-        echo "Ukuran poster melebihi batas yang diizinkan (maksimum 50MB).";
+        echo "Ukuran poster melebihi batas yang diizinkan (maksimum 41MB).";
         exit;
     }
 
@@ -40,10 +40,10 @@ if (!empty($poster)) {
 
 if (!empty($video)) {
 
-    $max_file_size = 500 * 1024 * 1024;
+    $max_file_size = 41 * 1024 * 1024;
 
     if ($_FILES['video']['size'] > $max_file_size) {
-        echo "Ukuran video melebihi batas yang diizinkan (maksimum 500MB).";
+        echo "Ukuran video melebihi batas yang diizinkan (maksimum 41MB).";
         exit;
     }
 
