@@ -16,7 +16,7 @@
             <table border="1">
                 <tr>
                     <th>Masukkan judul film</th>
-                    <td><input type="text" name="judul" placeholder="Masukkan Judul"></td>
+                    <td><input type="text" name="name" placeholder="Masukkan Judul"></td>
                 </tr>
                 <tr>
                     <th>Masukkan video film</th>
@@ -28,15 +28,17 @@
                 </tr>
                 <tr>
                     <th>Detail</th>
-                    <td><input type="text" name="detail"></td>
+                    <td><input type="text" name="detail" placeholder="Masukkan Detail"></td>
                 </tr>
                 <tr>
                     <th>Genre</th>
                     <td>
-                        <label><input type="radio" name="genre" value="Action"> Action</label><br>
-                        <label><input type="radio" name="genre" value="Romance"> Romance</label><br>
-                        <label><input type="radio" name="genre" value="Comedy"> Comedy</label><br>
-                        <label><input type="radio" name="genre" value="Horor"> Horror</label><br>
+                        <select name="genre">
+                            <option value="Action">Action</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Horor">Horror</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>

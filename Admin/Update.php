@@ -2,12 +2,13 @@
 include '../Koneksi.php';
 
 $id = $_POST['id'];
+$name =$_POST['name'];
 $poster = $_FILES['poster']['name'];
 $poster_tmp = $_FILES['poster']['tmp_name'];
 $video = $_FILES['video']['name'];
 $video_tmp = $_FILES['video']['tmp_name'];
 $detail = $_POST['detail'];
-$genre = implode(',', $_POST['genre']);
+$genre = $_POST['genre'];
 
 
 if (!empty($poster)) {
@@ -28,13 +29,13 @@ if (!empty($poster)) {
                 unlink($old_poster_path);
             }
         }
-        mysqli_query($koneksi, "UPDATE listfilm SET poster='$poster', detail='$detail', genre='$genre' WHERE id='$id'");
+        mysqli_query($koneksi, "UPDATE listfilm SET name='$name', poster='$poster', detail='$detail', genre='$genre' WHERE id='$id'");
     } else {
         echo "Gagal mengunggah poster baru.";
         exit;
     }
 } else {
-    mysqli_query($koneksi, "UPDATE listfilm SET detail='$detail', genre='$genre' WHERE id='$id'");
+    mysqli_query($koneksi, "UPDATE listfilm SET  name='$name', detail='$detail', genre='$genre' WHERE id='$id'");
 }
 
 

@@ -2,48 +2,67 @@
 include '../koneksi.php';
 
 if (isset($_POST['submit'])) {
-    $judul = $_POST['judul'];
+    $name = $_POST['name'];
     $poster = $_FILES['poster']['name'];
-    //untuk menyimpan data sementara
     $poster_tmp = $_FILES['poster']['tmp_name'];
     $detail = $_POST['detail'];
     $genre = $_POST['genre'];
     $video = $_FILES['video']['name'];
     $video_tmp = $_FILES['video']['tmp_name'];
-    $play = 0;
+    $liked = 0;
 
-    //batas file 50 mb
+    // batas file 50 MB
     $max_file_size = 41 * 1024 * 1024;
 
-    //pengecekan batas file poster > 50 mb
-    if ($_FILES['poster']['size'] > $max_file_size) {
-        echo "Ukuran poster melebihi batas yang diizinkan (maksimum 41MB).";
-        exit;
-    }
+    // pengecekan batas file poster > 50 MB
+    if ($_FILES['poster']['size'] < $max_file_size) {
+        if ($_FILES['video']['size'] < $max_file_size) {
+            $cekName = "SELECT * FROM listfilm WHERE name = '$name'";
+            $resultname = mysqli_query($koneksi, $cekName);
 
-    // pengecekan video > 50 mb
-    if ($_FILES['video']['size'] > $max_file_size) {
-        echo "Ukuran video melebihi batas yang diizinkan (maksimum 41MB).";
-        exit;
-    }
-    //move_uploaded_file() digunakan untuk memindahkan file yang diunggah dari lokasi sementara ke lokasi tujuan yang ditentukan.
-
-    // Upload poster 
-    if (move_uploaded_file($poster_tmp, "../Apps/poster/" . $poster)) {
-        // Upload video
-        if (move_uploaded_file($video_tmp, "../Apps/video/" . $video)) {
-            $query = "INSERT INTO listfilm (judul,poster, video, detail, genre, play) VALUES ('$judul','$poster', '$video', '$detail', '$genre', '$play')";
-
-            if (mysqli_query($koneksi, $query)) {
-                echo "Data berhasil ditambahkan";
-                Header("location: index.php");
+            if (mysqli_num_rows($resultname) > 0) {
+                alert();
             } else {
-                echo "Error: " . mysqli_error($koneksi);
+                if (move_uploaded_file($poster_tmp, "../Apps/poster/" . $poster)) {
+                    if (move_uploaded_file($video_tmp, "../Apps/video/" . $video)) {
+                        $query = "INSERT INTO listfilm (name, poster, video, detail, genre, liked) VALUES ('$name', '$poster', '$video', '$detail', '$genre', '$liked')";
+
+                        if (mysqli_query($koneksi, $query)) {
+                            echo "Data berhasil ditambahkan";
+                            header("location: index.php");
+                        } else {
+                            echo "Error: " . mysqli_error($koneksi);
+                        }
+                    } else {
+                        echo "Gagal mengunggah video.";
+                    }
+                } else {
+                    echo "Gagal mengunggah poster.";
+                }
             }
         } else {
-            echo "Gagal mengunggah video.";
+            alert2();
         }
     } else {
-        echo "Gagal mengunggah poster.";
+        alert2();
     }
 }
+
+function alert()
+{
+?>
+    <script>
+        alert("Film dengan nama yang sama sudah ada di database");
+    </script>
+<?php
+}
+
+function alert2()
+{
+?>
+    <script>
+        alert("Ukuran poster/video melebihi batas yang diizinkan (maksimum 41MB)");
+    </script>
+<?php
+}
+?>

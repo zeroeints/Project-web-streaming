@@ -6,120 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Edit</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="styleedit.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-        .center-table {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .center-header {
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 10px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-        }
-
-        .form-group select,
-        .form-group input[type="text"] {
-            width: 100%;
-            padding: 5px;
-            font-size: 16px;
-        }
-
-        .form-group .center-table {
-            text-align: center;
-        }
-
-        .form-group .center-table button,
-        .form-group .center-table a {
-            display: inline-block;
-            padding: 8px 16px;
-            font-size: 16px;
-            text-decoration: none;
-            color: #333;
-            background-color: #f2f2f2;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .form-group .center-table button {
-            margin-right: 10px;
-        }
-
-        .form-group .center-table button:hover,
-        .form-group .center-table a:hover {
-            background-color: #e6e6e6;
-        }
-    </style>
 </head>
 
 <body>
-    <h2 class="center-header">Form Edit</h2>
+    <div class="background">
 
-    <br>
-    <?php
-    include '../koneksi.php';
+        <h2 class="center-header">Form Edit</h2>
 
-    $id = $_GET['id'];
+        <br>
+        <?php
+        include '../koneksi.php';
 
-    $data = mysqli_query($koneksi, "SELECT * FROM listfilm WHERE id='$id'");
+        $id = $_GET['id'];
 
-    while ($result = mysqli_fetch_array($data)) {
-    ?>
-        <form action="update.php" method="post" enctype="multipart/form-data">
-            <table class="center-table" border="1">
-                <tr>
-                    <td>Id</td>
-                    <td><input type="hidden" name="id" value="<?php echo $result['id']; ?>"></td>
-                </tr>
-                <tr>
-                    <td>Video film</td>
-                    <td><input type="file" name="video"></td>
-                </tr>
-                <tr>
-                    <td>Poster film</td>
-                    <td><input type="file" name="poster"></td>
-                </tr>
-                <tr>
-                    <td>Detail Film</td>
-                    <td><input type="text" name="detail" value="<?php echo $result['detail']; ?>"></td>
-                </tr>
-                <tr>
-                    <td>Genre</td>
-                    <td>
-                        <label><input type="checkbox" name="genre[]" value="Action" <?php if (in_array('Action', explode(',', $result['genre']))) echo 'checked'; ?>> Action</label><br>
-                        <label><input type="checkbox" name="genre[]" value="Romance" <?php if (in_array('Romance', explode(',', $result['genre']))) echo 'checked'; ?>> Romance</label><br>
-                        <label><input type="checkbox" name="genre[]" value="Comedy" <?php if (in_array('Comedy', explode(',', $result['genre']))) echo 'checked'; ?>> Comedy</label><br>
-                        <label><input type="checkbox" name="genre[]" value="Horor" <?php if (in_array('Horor', explode(',', $result['genre']))) echo 'checked'; ?>> Horor</label><br>
+        $data = mysqli_query($koneksi, "SELECT * FROM listfilm WHERE id='$id'");
 
-                    </td>
-                </tr>
-                <tr>
-                    <th colspan="2" class="center-table">
-                        <button type="submit" name="submit">Submit</button>
-                        <a href="TampilanAdmin.php">Kembali</a>
-                    </th>
-                </tr>
-            </table>
-        </form>
-
-    <?php
-    }
-    ?>
+        while ($result = mysqli_fetch_array($data)) {
+            $genre = $result['genre'];
+        ?>
+            <form action="update.php" method="post" enctype="multipart/form-data">
+                <table class="center-table" border="1">
+                    <tr>
+                        <td>Id</td>
+                        <td><input type="hidden" name="id" value="<?php echo $result['id']; ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>Judul Film</td>
+                        <td><input type="text" name="name" value="<?php echo $result['name']; ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>Video Film</td>
+                        <td><input type="file" name="video"></td>
+                    </tr>
+                    <tr>
+                        <td>Poster Film</td>
+                        <td><input type="file" name="poster"></td>
+                    </tr>
+                    <tr>
+                        <td>Detail Film</td>
+                        <td><input type="text" name="detail" value="<?php echo $result['detail']; ?>"></td>
+                    </tr>
+                    <tr>
+                        <th>Genre</th>
+                        <td>
+                            <select name="genre">
+                                <option value="Action" <?php if ($genre == 'Action') echo 'selected'; ?>>Action</option>
+                                <option value="Romance" <?php if ($genre == 'Romance') echo 'selected'; ?>>Romance</option>
+                                <option value="Comedy" <?php if ($genre == 'Comedy') echo 'selected'; ?>>Comedy</option>
+                                <option value="Horror" <?php if ($genre == 'Horror') echo 'selected'; ?>>Horror</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="center-table">
+                            <button type="submit" class="btn btn-outline-danger">Submit</button>
+                            <a href="index.php"><button type="button" class="btn btn-outline-danger"><i class="bi bi-box-arrow-in-right"></i> kembali</button></a>
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        <?php
+        }
+        ?>
+    </div>
 </body>
 
 </html>
