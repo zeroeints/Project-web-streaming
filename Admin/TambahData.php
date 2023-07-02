@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $video_tmp = $_FILES['video']['tmp_name'];
     $liked = 0;
 
-    // batas file 50 MB
+    // batas file 41 MB
     $max_file_size = 41 * 1024 * 1024;
 
     // pengecekan batas file poster > 50 MB
