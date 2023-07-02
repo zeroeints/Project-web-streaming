@@ -18,13 +18,24 @@
 		$password = $_POST['password'];
 
 		$data = mysqli_query($koneksi,"SELECT * FROM user");
+		$sukses = false;
 		while ($datas = mysqli_fetch_assoc($data)) {
 			if ($datas['email'] == $email) {
 				mysqli_query($koneksi, "UPDATE user SET password='$password' WHERE email='$email'");
+				$sukses=true;
 			}
 		}
-	}
-?>
+		if ($sukses==false) {?>
+		<script>
+                alert("Email tidak ditemukan")
+                location.href = "forget.php";
+        </script>
+    <?php }else{?>
+    	<script>
+                alert("berhasil ubah password")
+                location.href = "signIn.php";
+        </script>
+    <?php }} ?>
 <div class="container">
 	<form class="form" method="post" action="" autocomplete="off">
 		<header>
