@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +17,7 @@ if (!isset($_SESSION['nama'])) {
 	header('location:../Login/signIn.php');
 }
 	include '../koneksi.php';
+    global $koneksi;
 	$username = $_SESSION['nama'];
 	$dataUser = mysqli_query($koneksi,"SELECT * FROM user WHERE nama = '$username'");
 	$datasUser = mysqli_fetch_assoc($dataUser);
