@@ -34,7 +34,7 @@
                     <!-- tambahin value id user -->
                     <input type="hidden" name="id" value="<?=$user ?>">
                     <!-- tambahin value id film supaya ga erorr -->
-                    <button name="submit" value="<?=$data['idFilm'] ?>"><i class="bi bi-play-circle-fill"></i></button>
+                    <button name="submit" value="<?=$data['id'] ?>"><i class="bi bi-play-circle-fill"></i></button>
                 </form>
             </div>
         </div>

@@ -13,7 +13,7 @@
 <body>
 <?php
     include '../../koneksi.php';
-    $user = $_POST['user'];
+    $user = $_POST['populer'];
     $populer = mysqli_query($koneksi,"SELECT * FROM listfilm ORDER BY liked DESC");  
 ?>
 <div class="container">
@@ -34,7 +34,7 @@
                     
                     <input type="hidden" name="id" value="<?=$user ?>">
                     
-                    <button name="submit" value="<?=$data['idFilm'] ?>"><i class="bi bi-play-circle-fill"></i></button>
+                    <button name="submit" value="<?=$data['id'] ?>"><i class="bi bi-play-circle-fill"></i></button>
                 </form>
             </div>
         </div>
