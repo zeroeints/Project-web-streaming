@@ -13,75 +13,75 @@
 </head>
 
 <body>
-<?php
+    <?php
     session_start();
     if (!isset($_SESSION['nama'])) {
         header('location:../Login/signIn.php');
     } else {
     ?>
-    <div class="background">
+        <div class="background">
 
-        <h2 class="center-header">Form Edit</h2>
+            <h2 class="center-header">Form Edit</h2>
 
-        <br>
-        <?php
-        include '../koneksi.php';
+            <br>
+            <?php
+            include '../koneksi.php';
 
-        $id = $_GET['id'];
+            $id = $_GET['id'];
 
-        $data = mysqli_query($koneksi, "SELECT * FROM listfilm WHERE id='$id'");
+            $data = mysqli_query($koneksi, "SELECT * FROM listfilm WHERE id='$id'");
 
-        while ($result = mysqli_fetch_array($data)) {
-            $genre = $result['genre'];
-        ?>
-            <form action="update.php" method="post" enctype="multipart/form-data">
-                <table class="center-table" border="1">
-                    <tr>
-                        <td>Id</td>
-                        <td><input type="hidden" name="id" value="<?php echo $result['id']; ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Judul Film</td>
-                        <td><input type="text" name="name" value="<?php echo $result['name']; ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>Video Film</td>
-                        <td><input type="file" name="video"></td>
-                    </tr>
-                    <tr>
-                        <td>Poster Film</td>
-                        <td><input type="file" name="poster"></td>
-                    </tr>
-                    <tr>
-                        <td>Detail Film</td>
-                        <td><input type="text" name="detail" value="<?php echo $result['detail']; ?>"></td>
-                    </tr>
-                    <tr>
-                        <th>Genre</th>
-                        <td>
-                            <select name="genre">
-                                <option value="Action" <?php if ($genre == 'Action') echo 'selected'; ?>>Action</option>
-                                <option value="Romance" <?php if ($genre == 'Romance') echo 'selected'; ?>>Romance</option>
-                                <option value="Comedy" <?php if ($genre == 'Comedy') echo 'selected'; ?>>Comedy</option>
-                                <option value="Horror" <?php if ($genre == 'Horror') echo 'selected'; ?>>Horror</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th colspan="2" class="center-table">
-                            <button type="submit" class="btn btn-outline-danger">Submit</button>
-                            <a href="index.php"><button type="button" class="btn btn-outline-danger"><i class="bi bi-box-arrow-in-right"></i> kembali</button></a>
-                        </th>
-                    </tr>
-                </table>
-            </form>
-        <?php
-        }
-        ?>
-    </div>
+            while ($result = mysqli_fetch_array($data)) {
+                $genre = $result['genre'];
+            ?>
+                <form action="update.php" method="post" enctype="multipart/form-data">
+                    <table class="center-table" border="1">
+                        <tr>
+                            <td>Id</td>
+                            <td><input type="hidden" name="id" value="<?php echo $result['id']; ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Judul Film</td>
+                            <td><input type="text" name="name" value="<?php echo $result['name']; ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Video Film</td>
+                            <td><input type="file" name="video"></td>
+                        </tr>
+                        <tr>
+                            <td>Poster Film</td>
+                            <td><input type="file" name="poster"></td>
+                        </tr>
+                        <tr>
+                            <td>Detail Film</td>
+                            <td><input type="text" name="detail" value="<?php echo $result['detail']; ?>"></td>
+                        </tr>
+                        <tr>
+                            <th>Genre</th>
+                            <td>
+                                <select name="genre">
+                                    <option value="Action" <?php if ($genre == 'Action') echo 'selected'; ?>>Action</option>
+                                    <option value="Romance" <?php if ($genre == 'Romance') echo 'selected'; ?>>Romance</option>
+                                    <option value="Comedy" <?php if ($genre == 'Comedy') echo 'selected'; ?>>Comedy</option>
+                                    <option value="Horror" <?php if ($genre == 'Horror') echo 'selected'; ?>>Horror</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2" class="center-table">
+                                <button type="submit" class="btn btn-outline-danger">Submit</button>
+                                <a href="index.php"><button type="button" class="btn btn-outline-danger"><i class="bi bi-box-arrow-in-right"></i> kembali</button></a>
+                            </th>
+                        </tr>
+                    </table>
+                </form>
+            <?php
+            }
+            ?>
+        </div>
     <?php
-        }
-        ?>
+    }
+    ?>
 </body>
 
 </html>
