@@ -60,8 +60,14 @@
                                 <td><?php echo $result['detail']; ?></td>
                                 <td><?php echo $result['genre']; ?></td>
                                 <td>
-                                    <a href="Edit.php?id=<?= $result['id']; ?>"><button type="button" class="btn btn-outline-danger"><i class="bi bi-pencil-square"></i> Edit</button></a>
-                                    <a href="Delete.php?id=<?= $result['id']; ?>"><button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i></i> Hapus</button></button></a>
+                                    <div>
+
+                                        <a href="Edit.php?id=<?= $result['id']; ?>"><button type="button" class="btn btn-outline-danger"><i class="bi bi-pencil-square"></i> Edit</button></a>
+                                    </div>
+                                    <div>
+
+                                        <a href="Delete.php?id=<?= $result['id']; ?>"><button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i></i> Hapus</button></button></a>
+                                    </div>
 
 
                                 </td>
