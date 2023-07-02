@@ -14,7 +14,7 @@
 <?php
     include '../../koneksi.php';
     $user = $_POST['populer'];
-    $populer = mysqli_query($koneksi,"SELECT * FROM listfilm ORDER BY liked DESC");  
+    $populer = mysqli_query($koneksi,"SELECT * FROM listfilm ORDER BY liked DESC LIMIT 10");  
 ?>
 <div class="container">
     <header>
