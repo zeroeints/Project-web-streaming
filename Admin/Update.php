@@ -1,5 +1,6 @@
 <?php
 include '../Koneksi.php';
+if (isset($_POST['submit'])) {
 
 $id = $_POST['id'];
 $name =$_POST['name'];
@@ -69,3 +70,4 @@ if (!empty($video)) {
 }
 
 header("location: index.php");
+}

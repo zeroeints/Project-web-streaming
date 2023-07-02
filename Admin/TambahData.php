@@ -64,5 +64,6 @@ function alert2()
         alert("Ukuran poster/video melebihi batas yang diizinkan (maksimum 41MB)");
     </script>
 <?php
+
 }
 ?>

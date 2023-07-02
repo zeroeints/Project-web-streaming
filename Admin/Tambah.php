@@ -11,6 +11,12 @@
 </head>
 
 <body>
+<?php
+    session_start();
+    if (!isset($_SESSION['nama'])) {
+        header('location:../Login/signIn.php');
+    } else {
+    ?>
     <div class="background">
         <form action="TambahData.php" method="post" enctype="multipart/form-data">
             <table border="1">
@@ -49,6 +55,9 @@
             </table>
         </form>
     </div>
+    <?php
+    }
+    ?>
 </body>
 
 </html>

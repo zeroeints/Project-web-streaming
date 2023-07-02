@@ -13,6 +13,12 @@
 </head>
 
 <body>
+<?php
+    session_start();
+    if (!isset($_SESSION['nama'])) {
+        header('location:../Login/signIn.php');
+    } else {
+    ?>
     <div class="background">
 
         <h2 class="center-header">Form Edit</h2>
@@ -73,6 +79,9 @@
         }
         ?>
     </div>
+    <?php
+        }
+        ?>
 </body>
 
 </html>
