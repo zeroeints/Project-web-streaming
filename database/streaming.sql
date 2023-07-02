@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2023 at 12:16 PM
+-- Generation Time: Jul 02, 2023 at 03:27 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -28,20 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `favorite` (
-  `idUser` int(11) NOT NULL,
-  `idFilm` int(11) NOT NULL
+  `ids` int(11) NOT NULL,
+  `idUser` int(11) DEFAULT NULL,
+  `idFilm` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `favorite`
 --
 
-INSERT INTO `favorite` (`idUser`, `idFilm`) VALUES
-(8, 4),
-(8, 10),
-(8, 15),
-(8, 20),
-(8, 13);
+INSERT INTO `favorite` (`ids`, `idUser`, `idFilm`) VALUES
+(1, 8, 13),
+(2, 8, 1),
+(3, 8, 6),
+(4, 8, 20),
+(5, 8, 2),
+(7, 8, 19);
 
 -- --------------------------------------------------------
 
@@ -50,24 +52,23 @@ INSERT INTO `favorite` (`idUser`, `idFilm`) VALUES
 --
 
 CREATE TABLE `history` (
-  `idUser` int(11) NOT NULL,
-  `idFilm` int(11) NOT NULL
+  `ids` int(11) NOT NULL,
+  `idUser` int(11) DEFAULT NULL,
+  `idFilm` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `history`
 --
 
-INSERT INTO `history` (`idUser`, `idFilm`) VALUES
-(8, 4),
-(8, 8),
-(8, 16),
-(8, 1),
-(8, 14),
-(8, 2),
-(8, 19),
-(8, 20),
-(8, 13);
+INSERT INTO `history` (`ids`, `idUser`, `idFilm`) VALUES
+(1, 8, 18),
+(4, 8, 16),
+(6, 8, 20),
+(7, 8, 13),
+(12, 8, 19),
+(14, 8, 14),
+(18, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -103,13 +104,13 @@ INSERT INTO `listfilm` (`id`, `name`, `poster`, `video`, `detail`, `genre`, `lik
 (11, 'Evil Dead Rise', 'Evil Dead Rise.jpg', 'Evil Dead Rise.mp4', '', 'Horor', 2),
 (12, 'Pamali', 'Pamali.jpg', 'Pamali.mp4', '', 'Horor', 19),
 (13, 'Pengabdi Setan 2', 'Pengabdi Setan 2.jpg', 'Pengabdi Setan 2.mp4', '', 'Horor', 25),
-(14, 'Sewu Dino', 'Sewu Dino.jpg', 'SewuDino.mp4', '', 'Horor', 15),
+(14, 'Sewu Dino', 'Sewu Dino.jpg', 'SewuDino.mp4', '', 'Horor', 16),
 (15, 'Waktu Maghrib', 'Waktu Maghrib.jpg', 'Waktu Maghrib.mp4', '', 'Horor', 4),
-(16, 'Before We Go', 'Before We Go.jpg', 'Before We Go.mp4', '', 'Romantis', 24),
-(17, 'Paper Towns poster', 'Paper Towns poster.jpg', 'Paper Towns.mp4', '', 'Romantis', 16),
-(18, 'Senses', 'Senses.jpg', 'Senses.mp4', '', 'Romantis', 8),
-(19, 'The Notebook', 'The Notebook.jpg', 'The Notebook.mp4', '', 'Romantis', 5),
-(20, 'The Vow', 'The Vow.jpg', 'The Vow.mp4', '', 'Romantis', 6);
+(16, 'Before We Go', 'Before We Go.jpg', 'Before We Go.mp4', '', 'Romantis', 25),
+(17, 'Paper Towns poster', 'Paper Towns poster.jpg', 'Paper Towns.mp4', '', 'Romantis', 17),
+(18, 'Senses', 'Senses.jpg', 'Senses.mp4', '', 'Romantis', 9),
+(19, 'The Notebook', 'The Notebook.jpg', 'The Notebook.mp4', '', 'Romantis', 6),
+(20, 'The Vow', 'The Vow.jpg', 'The Vow.mp4', '', 'Romantis', 7);
 
 -- --------------------------------------------------------
 
@@ -127,10 +128,6 @@ CREATE TABLE `love` (
 --
 
 INSERT INTO `love` (`idUser`, `idFilm`) VALUES
-(8, 5),
-(8, 4),
-(8, 1),
-(8, 20),
 (8, 14);
 
 -- --------------------------------------------------------
@@ -152,11 +149,26 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `password`, `email`, `subscribe`) VALUES
-(8, 'bagaskara', '2004', 'bagas@gmail.com', 0);
+(8, 'bagaskara', 'bgs2004', 'bagas@gmail.com', 1),
+(10, 'daus', '12345', 'daus@gmail.com', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `favorite`
+--
+ALTER TABLE `favorite`
+  ADD PRIMARY KEY (`ids`),
+  ADD KEY `idFilm` (`idFilm`);
+
+--
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`ids`),
+  ADD KEY `idFilm` (`idFilm`);
 
 --
 -- Indexes for table `listfilm`
@@ -175,6 +187,18 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `favorite`
+--
+ALTER TABLE `favorite`
+  MODIFY `ids` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `ids` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 -- AUTO_INCREMENT for table `listfilm`
 --
 ALTER TABLE `listfilm`
@@ -184,7 +208,23 @@ ALTER TABLE `listfilm`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `favorite`
+--
+ALTER TABLE `favorite`
+  ADD CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`idFilm`) REFERENCES `listfilm` (`id`);
+
+--
+-- Constraints for table `history`
+--
+ALTER TABLE `history`
+  ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`idFilm`) REFERENCES `listfilm` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

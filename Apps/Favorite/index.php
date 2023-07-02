@@ -12,45 +12,33 @@
 </head>
 <body>
 <?php
-    session_start();
     include '../../koneksi.php';
-    global $koneksi;
-    $username = $_SESSION['nama'];
-    $dataUser = mysqli_query($koneksi,"SELECT * FROM user WHERE nama = '$username'");
-    $datasUser = mysqli_fetch_assoc($dataUser);
-    $getId = $_SESSION['id'];
-
-    $favData = mysqli_query($koneksi, "SELECT * FROM favorite");
-
-    $sql = mysqli_query($koneksi,"SELECT * FROM listfilm ");
+    $user = $_POST['favorite'];
+    $fav = mysqli_query($koneksi,"SELECT favorite.*,listfilm.* FROM favorite JOIN listfilm ON favorite.idFilm = listfilm.id WHERE idUser='$user' ORDER BY ids DESC");  
 ?>
-    <!-- note -->
-    <!-- ambil data dari data base favorite -->
-    <!-- ulang card sebanyak data yang ada -->
-    <!-- di dalam card kasi data datanya -->
-    <!-- yang dibawah ini baru contohnya saja -->
 <div class="container">
     <header>
         <h1>FAVORITE</h1>
         <a href="../index.php"><i class="bi bi-box-arrow-left"></i></a>
     </header>
     <div class="list">
-        <?php while($datafilm = mysqli_fetch_assoc($sql)) ?>
+    <?php while ($data = mysqli_fetch_assoc($fav)) {?>
         <div class="card">
-            <div class="poster" style="background-image: url('Poster/<?=$datafilm['poster']; ?>');"></div>
+            <div class="poster" style="background-image: url('../Poster/<?=$data['poster'] ?>');"></div>
             <div class="more">
                 <div class="detail">
-                    <h3>Judul : <?= $datafilm['name'] ?></h3>
-                    <h3>Genre : <?= $datafilm['genre'] ?></h3>
+                    <h3>Judul : <?= $data['name'] ?></h3>
+                    <h3>Genre : <?= $data['genre']?></h3>
                 </div>
-                <form action="../PemutarVideo/index.php" >
+                <form action="../PemutarVideo/index.php" method="post">
                     <!-- tambahin value id user -->
-                    <input type="hidden" name="id" value="<?= $datasUser['id'] ?>">
+                    <input type="hidden" name="id" value="<?=$user ?>">
                     <!-- tambahin value id film supaya ga erorr -->
-                    <button name="submit" value="<?= $datafilm['idFilm'] ?>"><i class="bi bi-play-circle-fill"></i></button>
+                    <button name="submit" value="<?=$data['idFilm'] ?>"><i class="bi bi-play-circle-fill"></i></button>
                 </form>
             </div>
         </div>
+    <?php } ?>
     </div>
 </div>
 </body>

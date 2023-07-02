@@ -21,7 +21,7 @@ while ($datas = mysqli_fetch_assoc($data)) {
     }
 }
 if ($empty == true) {
-    mysqli_query($koneksi,"INSERT INTO favorite VALUES('$idUser','$idFilm')");
+    mysqli_query($koneksi,"INSERT INTO favorite VALUES('','$idUser','$idFilm')");
     $pesan = "BERHASIL TAMBAH FILM KE FAVORITE";
 }
  ?>

@@ -7,11 +7,11 @@ function history($idUser,$idFilm,$koneksi)
 		if ($result['idFilm'] == $idFilm) {
 			$empty = false;
 			mysqli_query($koneksi,"DELETE FROM history WHERE idFilm = $idFilm");
-			mysqli_query($koneksi,"INSERT INTO history VALUES('$idUser','$idFilm')");
+			mysqli_query($koneksi,"INSERT INTO history VALUES('','$idUser','$idFilm')");
 		}
 	}
 	if ($empty == true) {
-		mysqli_query($koneksi,"INSERT INTO history VALUES('$idUser','$idFilm')");
+		mysqli_query($koneksi,"INSERT INTO history VALUES('','$idUser','$idFilm')");
 	}
 }
  ?>

@@ -11,26 +11,22 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
-
 <?php
-    if (isset($_GET['pesan'])) {
-        if ($_GET['pesan'] == 'auth') {
-            include "../action/loginAction.php";
-            header('location:../Apps/index.php');
+	include '../koneksi.php';
+	if (isset($_POST['submit'])) {
+		$email = $_POST['email'];
+		$password = $_POST['password'];
 
-        } elseif ($_GET['pesan'] == 'fail') {
-            ?>
-            <script>
-                alert("Username/Password Salah")
-                location.href = "signIn.php";
-            </script>
-            <?php
-        }
-    }
+		$data = mysqli_query($koneksi,"SELECT * FROM user");
+		while ($datas = mysqli_fetch_assoc($data)) {
+			if ($datas['email'] == $email) {
+				mysqli_query($koneksi, "UPDATE user SET password='$password' WHERE email='$email'");
+			}
+		}
+	}
 ?>
-
 <div class="container">
-	<form class="form" method="post" action="../action/loginAction.php" autocomplete="off">
+	<form class="form" method="post" action="" autocomplete="off">
 		<header>
 			<div class="logo">
 				<div class="bulat"><i class="bi bi-film"></i></div>
@@ -38,16 +34,15 @@
 			</div>
 		</header>
 		<div class="inputan">
-			<input type="text" name="nama" id="nama" required>
-			<label for="nama" class="user">Username :</label>
+			<input type="email" name="email" id="email" required>
+			<label for="email" class="user">Email :</label>
 			<input type="password" name="password" id="password" required>
-			<label for="password">Password :</label>
-			<a href="forget.php">forget your password?</a>
+			<label for="password">New Password :</label>
 		</div>
 		
 		<div class="link">
-			<button type="submit" name="submit" class="button">MASUK</button>
-			<a href="signUp.php">Sign Up</a>
+			<button type="submit" name="submit" class="button">UPDATE</button>
+			<a href="signIn.php">Sign In</a>
 		</div>
 	</form>
 </div>
