@@ -7,7 +7,7 @@ $username = $_SESSION['nama'];
 $dataUser = mysqli_query($koneksi,"SELECT * FROM user WHERE nama = '$username'");
 $datasUser = mysqli_fetch_assoc($dataUser);
 
-$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm WHERE name LIKE '%$search%' or genre='$search'");
+$dataFilm = mysqli_query($koneksi,"SELECT * FROM listfilm  WHERE name LIKE '%$search%' or genre='$search' ORDER BY id DESC");
 ?>
 <?php while ($datasFilm = mysqli_fetch_assoc($dataFilm)) {?>
 	<div class="card">
