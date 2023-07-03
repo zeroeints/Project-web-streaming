@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styletambah.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <title>Create</title>
 </head>
@@ -48,9 +50,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: center;">
-                            <button type="submit" name="submit">Submit</button>
-                        </td>
+                        <th colspan="2" class="center-table">
+                            <button type="submit" class="btn btn-outline-danger">Submit</button>
+                            <a href="index.php"><button type="button" class="btn btn-outline-danger"><i class="bi bi-box-arrow-in-right"></i> kembali</button></a>
+                        </th>
                     </tr>
                 </table>
             </form>
