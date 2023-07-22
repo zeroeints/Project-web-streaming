@@ -47,7 +47,9 @@
                         include '../koneksi.php';
 
                         $data = mysqli_query($koneksi, "SELECT * FROM listfilm");
+                        
                         while ($result = mysqli_fetch_array($data)) {
+                            
                         ?>
                             <tr>
                                 <td><?php echo $result['id']; ?></td>

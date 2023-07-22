@@ -14,6 +14,7 @@
 
     //untuk masuk admin
     session_start();
+    
     if ($getUser == 'admin' && $getPass == 'admin') {
         $_SESSION['nama'] = $getUser;
         header("location:../Admin/index.php");

@@ -34,7 +34,7 @@
             while ($result = mysqli_fetch_array($data)) {
                 $genre = $result['genre'];
             ?>
-                <form action="update.php" method="post" enctype="multipart/form-data">
+                <form action="Update.php" method="post" enctype="multipart/form-data">
                     <table class="center-table" border="1">
                         <tr>
                             <td>Id</td>
